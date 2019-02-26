@@ -21,22 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    protected void configureRegularSecurity(HttpSecurity http) throws Exception {
-
-        http
-            .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-            .httpBasic();
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
         .authorizeRequests()
-//            .anyRequest()
-//            .hasIpAddress("localhost")
+            .anyRequest()
+            .hasIpAddress("localhost")
             .and()
         .httpBasic();
     }
