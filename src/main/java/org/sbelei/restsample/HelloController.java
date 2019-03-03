@@ -10,8 +10,8 @@ public class HelloController {
 
     Logger log = LoggerFactory.getLogger(HelloController.class);
 
-    @GetMapping("/hello")
-    String sayHello() {
+    @GetMapping("/private/hello")
+    public String sayHello() {
         log.info("Hello world");
         return "Hello world";
     }
