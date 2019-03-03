@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include resource="org/springframework/boot/loggign/logback/defaults.xml" />
-    <include resource="org/springframework/boot/loggign/logback/console-appender.xml" />
-    <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+    <include
+        resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include
+        resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <appender name="stash"
+        class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>localhost:5044</destination>
         <!-- encoder is required -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        <encoder
+            class="net.logstash.logback.encoder.LogstashEncoder" />
+        <!-- ssl>
+            <trustStore>
+                <location>classpath:keystore.jks</location>
+                <password>password</password>
+            </trustStore>
+        </ssl -->
     </appender>
     <root level="INFO">
-        <appender-ref ref="stash"/>
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="stash" />
     </root>
 </configuration>
