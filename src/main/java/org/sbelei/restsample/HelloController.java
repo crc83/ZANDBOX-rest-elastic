@@ -16,4 +16,9 @@ public class HelloController {
         return "Hello world";
     }
 
+    @GetMapping("/public/hello")
+    public String sayHelloToPublic() {
+        log.info("Lorem ipsum");
+        return "Lorem ipsum";
+    }
 }
